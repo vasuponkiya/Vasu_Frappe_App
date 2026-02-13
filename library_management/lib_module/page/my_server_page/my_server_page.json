@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-01-09 12:54:28.398182",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-01-09 12:54:28.398182",
+ "modified_by": "Administrator",
+ "module": "lib_Module",
+ "name": "my-server-page",
+ "owner": "Administrator",
+ "page_name": "my-server-page",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Demo Page "
+}

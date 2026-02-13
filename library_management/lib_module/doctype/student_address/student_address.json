@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "ADR-.####",
+ "creation": "2026-01-10 12:19:17.782816",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_uvtm",
+  "address_line1",
+  "address_line2",
+  "city",
+  "state",
+  "pin_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_uvtm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "address_line2",
+   "fieldtype": "Data",
+   "label": "Address_line2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Select",
+   "label": "State",
+   "options": "Gujarat\nMaharastra\nRajsthan\nKerala\nTamilNadu"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "pin_code",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Pin Code",
+   "length": 6,
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line1",
+   "fieldtype": "Data",
+   "label": "Addresse_line1",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-10 14:45:01.623692",
+ "modified_by": "Administrator",
+ "module": "lib_Module",
+ "name": "Student Address",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

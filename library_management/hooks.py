@@ -25,8 +25,8 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/library_management/css/library_management.css"
-# app_include_js = "/assets/library_management/js/library_management.js"
+# app_include_css = "/assets/library_management/css/desk.css"
+# app_include_js = "/assets/library_management/js/desk.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/library_management/css/library_management.css"
@@ -36,17 +36,24 @@ app_license = "mit"
 # website_theme_scss = "library_management/public/scss/website"
 
 # include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
+webform_include_js = {"Job Application": "/assets/library_management/js/web_form_Job_application.js"}
+webform_include_css = {"Job Application": "/assets/library_management/js/web_form_Job_application.css"}
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_js = {
+    # "Student" : "public/js/student_js.js",
+    "Sales Invoice": "public/js/sales_invoice_custom.js",
+    "Customer":"public/js/customer.js"
+}
+
+doctype_list_js = {
+    "Customer" : 'public/js/customer_add_button_list.js',
+    }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+# doctype_calendar_js = {"doctype" : "library_management/lib_module/doctype/my_calandar/my_calandar_calendar.js"}
 
 # Svg Icons
 # ------------------
@@ -82,8 +89,8 @@ app_license = "mit"
 # Installation
 # ------------
 
-# before_install = "library_management.install.before_install"
-# after_install = "library_management.install.after_install"
+# before_install = "library_managementapps.overrides.install.py"
+# after_install = "library_managementapps.overrides.install.py"
 
 # Uninstallation
 # ------------
@@ -118,53 +125,91 @@ app_license = "mit"
 # Permissions evaluated in scripted ways
 
 # permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
+#     "Student":"library_management.overrides.student_query_permissions.get_permission_query_conditions",
 # }
-#
+
+
 # has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
+# 	"Student": "library_management.overrides.student_permisions.student_permission",
 # }
 
 # DocType Class
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	# "ToDo": "custom_app.overrides.CustomToDo",
+    "Purchase Order" : "library_management.overrides.purchaseOrder.CustomPurchaseOrder",
+    "Sales Invoice" : "library_management.overrides.sales_invoice.SalesInvoiceCustom",
+}
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Customer": {
+         "after_insert":[
+            "library_management.overrides.events.customer_group_count_validate"
+        ],
+        "on_update":[
+            "library_management.overrides.events.customer_group_count_validate",
+            # "library_management.overrides.events.show_Popup_on_save"
+        ],
+        "after_delete":[
+            "library_management.overrides.events.customer_group_count_validate"
+        ],
+        
+    },
+    "Sales Order":{
+        "before_save":[
+            "library_management.overrides.events.set_default_discount_sale_order",
+        ]
+    },
+
+    # "Student": {
+    #     # "validate": ["library_management.overrides.events.validate_student"],
+    #     "on_update":["library_management.overrides.events.sendEmail"]
+    # }
+}
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
+
+#     "cron": {
+#         "* * * * *": [
+#             "library_management.overrides.tasks.insert_note_cron"
+#         ],
+#         "0 12 * * *": [
+#             "library_management.overrides.tasks.noon_task"
+#         ],
+#         "*/2 * * * *": [
+#             "library_management.overrides.tasks.send_daily_email"
+#         ],
+#         "0 14 * * *": [
+#         "library_management.overrides.events.fix_customer_group_sequence"
+#         ],
+#     },
+
 # 	"all": [
-# 		"library_management.tasks.all"
+# 		"library_management.overrides.tasks.all"
 # 	],
-# 	"daily": [
-# 		"library_management.tasks.daily"
-# 	],
+# 	# "daily": [
+# 	# 	"library_management.overrides.tasks.send_daily_email"
+# 	# ],
 # 	"hourly": [
-# 		"library_management.tasks.hourly"
+# 		"library_management.overrides.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"library_management.tasks.weekly"
+# 		"library_management.overrides.tasks.weekly"
 # 	],
 # 	"monthly": [
-# 		"library_management.tasks.monthly"
+# 		"library_management.overrides.tasks.monthly"
 # 	],
-# }
+#}
+
 
 # Testing
 # -------
@@ -174,10 +219,10 @@ app_license = "mit"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "library_management.event.get_events"
-# }
-#
+override_whitelisted_methods = {
+    "erpnext.accounts.doctype.sales_invoice.sales_invoice.make_delivery_note":
+        "library_management.overrides.sales_invoice.make_delivery_note"
+}
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
@@ -192,7 +237,7 @@ app_license = "mit"
 # Ignore links to specified DocTypes when deleting documents
 # -----------------------------------------------------------
 
-# ignore_links_on_delete = ["Communication", "ToDo"]
+# ignore_links_on_delete = ["My Doc_1", "My_Doc_2"]
 
 # Request Events
 # ----------------
@@ -246,4 +291,49 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
+
+# Fixtures
+#------------------
+
+fixtures =[
+    'Library Member',
+]
+
+
+#sounds
+#---------------------------
+sounds = [
+    {
+        "name": "call",
+        "src": "/assets/library_management/sounds/call-disconnect.mp3",
+        "volume": 0.2
+    },
+]
+
+#Migrate
+#-------------------------------------------------------------
+
+after_migrate ="library_management.overrides.migrate.after_migrate"
+before_migrate = "library_management.overrides.migrate.before_migrate"
+
+#Add DocType Calender
+calendars = ["my_calandar"]
+  
+
+# additional_timeline_content = {
+#     "ToDo": ["library_management.overrides.timeline.todo_timeline"]
+# }
+
+
+#change Brand logo in website
+brand_html = """
+<div class="navbar-brand">
+    <a href="/">
+        <img src="/assets/library_management/images/sigzen.png"
+            style="height:28px;">
+    </a>
+</div>
+"""
+
+
 

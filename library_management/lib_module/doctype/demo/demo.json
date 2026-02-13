@@ -1,0 +1,356 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "DM.#####",
+ "creation": "2025-12-29 14:20:43.585044",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tab1_tab",
+  "first_name",
+  "phone_no",
+  "currency",
+  "button",
+  "check",
+  "select",
+  "color",
+  "barcode",
+  "column_break_mbbb",
+  "attach",
+  "attach_image",
+  "image",
+  "link",
+  "all_doctypes",
+  "document_from_doctype",
+  "autocomplate_field",
+  "column_break_ffdz",
+  "date",
+  "datetime",
+  "time",
+  "duration",
+  "intager",
+  "float",
+  "percent",
+  "password",
+  "tab2_tab",
+  "section_break_fb4l",
+  "code",
+  "column_break_bslq",
+  "json",
+  "section_break_xcwb",
+  "text",
+  "section_break_lkpw",
+  "smalltext",
+  "column_break_b90a",
+  "longtext",
+  "section_break_oyne",
+  "editors_tab",
+  "htmleditor",
+  "column_break_kiex",
+  "texteditor",
+  "column_break_pgqr",
+  "markdowneditor",
+  "tab4_tab",
+  "section_break_fpsy",
+  "icon",
+  "signature",
+  "rating",
+  "section_break_ivtq",
+  "multiselcttable"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1,
+   "translatable": 1
+  },
+  {
+   "fieldname": "attach",
+   "fieldtype": "Attach",
+   "label": "Attach"
+  },
+  {
+   "fieldname": "attach_image",
+   "fieldtype": "Attach Image",
+   "label": "Attach Image"
+  },
+  {
+   "fieldname": "barcode",
+   "fieldtype": "Barcode",
+   "label": "BarCode"
+  },
+  {
+   "fieldname": "button",
+   "fieldtype": "Button",
+   "label": "Button"
+  },
+  {
+   "default": "1",
+   "fieldname": "check",
+   "fieldtype": "Check",
+   "label": "Check"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Color",
+   "label": "Color"
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Currency",
+   "label": "Currency"
+  },
+  {
+   "fieldname": "code",
+   "fieldtype": "Code",
+   "label": "Code"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "datetime",
+   "fieldtype": "Datetime",
+   "label": "DateTime"
+  },
+  {
+   "fieldname": "float",
+   "fieldtype": "Float",
+   "label": "Float"
+  },
+  {
+   "fieldname": "intager",
+   "fieldtype": "Int",
+   "label": "Intager"
+  },
+  {
+   "fieldname": "json",
+   "fieldtype": "JSON",
+   "label": "Json"
+  },
+  {
+   "fieldname": "text",
+   "fieldtype": "Text",
+   "label": "Text",
+   "translatable": 1
+  },
+  {
+   "fieldname": "link",
+   "fieldtype": "Link",
+   "label": "Link",
+   "options": "Article"
+  },
+  {
+   "default": "Pqr",
+   "fieldname": "select",
+   "fieldtype": "Select",
+   "label": "Select",
+   "options": "Abc\nXyz\nPqr\nWxy",
+   "sort_options": 1
+  },
+  {
+   "fieldname": "column_break_ffdz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Duration",
+   "label": "Duration"
+  },
+  {
+   "fieldname": "percent",
+   "fieldtype": "Percent",
+   "label": "Percent",
+   "length": 2
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Signature",
+   "label": "Signature"
+  },
+  {
+   "fieldname": "phone_no",
+   "fieldtype": "Phone",
+   "label": "Phone_No",
+   "placeholder": "PhoneNo."
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating"
+  },
+  {
+   "fieldname": "column_break_mbbb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Image",
+   "label": "Image",
+   "options": "attach_image"
+  },
+  {
+   "fieldname": "column_break_bslq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "smalltext",
+   "fieldtype": "Small Text",
+   "label": "SmallText"
+  },
+  {
+   "fieldname": "longtext",
+   "fieldtype": "Long Text",
+   "label": "LongText"
+  },
+  {
+   "fieldname": "section_break_oyne",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_b90a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Password",
+   "label": "Password"
+  },
+  {
+   "fieldname": "section_break_fb4l",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_xcwb",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_fpsy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "htmleditor",
+   "fieldtype": "HTML Editor",
+   "label": "HTMLEditor"
+  },
+  {
+   "fieldname": "texteditor",
+   "fieldtype": "Text Editor",
+   "label": "TextEditor"
+  },
+  {
+   "fieldname": "markdowneditor",
+   "fieldtype": "Markdown Editor",
+   "label": "MarkDownEditor"
+  },
+  {
+   "fieldname": "tab1_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab1"
+  },
+  {
+   "fieldname": "tab2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab2"
+  },
+  {
+   "fieldname": "editors_tab",
+   "fieldtype": "Tab Break",
+   "label": "Editors"
+  },
+  {
+   "fieldname": "column_break_kiex",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_pgqr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tab4_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab4"
+  },
+  {
+   "fieldname": "icon",
+   "fieldtype": "Icon",
+   "label": "Icon"
+  },
+  {
+   "fieldname": "section_break_lkpw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_ivtq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "multiselcttable",
+   "fieldtype": "Table MultiSelect",
+   "label": "MultiselctTable",
+   "options": "child Property"
+  },
+  {
+   "fieldname": "all_doctypes",
+   "fieldtype": "Link",
+   "label": "All DocTypes",
+   "link_filters": "[[\"name\", \"in\", [\"Student\",\"My Server Script\"]]]",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "document_from_doctype",
+   "fieldtype": "Dynamic Link",
+   "label": "Document from DocType",
+   "options": "all_doctypes"
+  },
+  {
+   "fieldname": "autocomplate_field",
+   "fieldtype": "Autocomplete",
+   "label": "AutoComplate field",
+   "options": "Apple\nBall\nCat"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-13 17:14:07.842696",
+ "modified_by": "Administrator",
+ "module": "lib_Module",
+ "name": "Demo",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "search_fields": "first_name",
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "first_name"
+}

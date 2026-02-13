@@ -1,0 +1,46 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Library Member",
+  "email_address": "john123@gmail.com",
+  "first_name": "John",
+  "full_name": null,
+  "last_name": "Edward",
+  "modified": "2025-12-30 10:55:48.174502",
+  "name": "LM00001",
+  "phone": "+91-6574839354"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Library Member",
+  "email_address": "jay@gmail.com",
+  "first_name": "jay",
+  "full_name": "jay jier",
+  "last_name": "jier",
+  "modified": "2026-01-16 16:56:38.026149",
+  "name": "LM00004",
+  "phone": "+91-4785645346"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Library Member",
+  "email_address": "jdhff123@gmail.com",
+  "first_name": "mark",
+  "full_name": "mark jdh",
+  "last_name": "jdh",
+  "modified": "2025-12-30 11:53:40.678687",
+  "name": "LM00002",
+  "phone": null
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Library Member",
+  "email_address": "rush@gmail.com",
+  "first_name": "leo",
+  "full_name": "leo rush",
+  "last_name": "rush",
+  "modified": "2025-12-30 12:36:19.136648",
+  "name": "LM00003",
+  "phone": "+91-9834455678"
+ }
+]

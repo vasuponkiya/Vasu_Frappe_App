@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-01-08 16:03:13.155554",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-01-12 12:59:55.933304",
+ "modified_by": "Administrator",
+ "module": "lib_Module",
+ "name": "My Server Query Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT first_name as 'First Name', last_name as 'Last Name', dob as 'DOB', age as 'Age'\nFROM `tabMy Server Script`;",
+ "ref_doctype": "My Server Script",
+ "report_name": "My Server Query Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

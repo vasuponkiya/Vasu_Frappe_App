@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-12-31 11:06:21.623469",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "soft_skills",
+  "technical_skills"
+ ],
+ "fields": [
+  {
+   "fieldname": "soft_skills",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Soft Skills",
+   "reqd": 1
+  },
+  {
+   "fieldname": "technical_skills",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Technical Skills",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-12-31 11:08:39.773767",
+ "modified_by": "Administrator",
+ "module": "lib_Module",
+ "name": "my_skills",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
