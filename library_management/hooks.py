@@ -46,8 +46,8 @@ webform_include_css = {"Job Application": "/assets/library_management/js/web_for
 doctype_js = {
     # "Student" : "public/js/student_js.js",
     "Sales Invoice": "public/js/sales_invoice_custom.js",
-    "Customer":"public/js/customer.js"
-}
+    "Customer":"public/js/customer.js",
+ }
 
 doctype_list_js = {
     "Customer" : 'public/js/customer_add_button_list.js',
@@ -139,7 +139,7 @@ doctype_list_js = {
 
 override_doctype_class = {
 	# "ToDo": "custom_app.overrides.CustomToDo",
-    "Purchase Order" : "library_management.overrides.purchaseOrder.CustomPurchaseOrder",
+    #"Purchase Order" : "library_management.overrides.purchaseOrder.CustomPurchaseOrder",
     "Sales Invoice" : "library_management.overrides.sales_invoice.SalesInvoiceCustom",
 }
 
@@ -164,14 +164,26 @@ doc_events = {
     "Sales Order":{
         "before_save":[
             "library_management.overrides.events.set_default_discount_sale_order",
-        ]
+        ],
     },
+    "Material Request":{
+        "on_submit":["library_management.overrides.genarate_PO.genarate_OP"
+        ],
+    },
+
+    "Item": {
+        "validate": ["library_management.overrides.item_events.validate_item_variant",
+        ],
+        "after_insert": ["library_management.overrides.item_events.create_serial_no"
+        ],
+    }
 
     # "Student": {
     #     # "validate": ["library_management.overrides.events.validate_student"],
     #     "on_update":["library_management.overrides.events.sendEmail"]
     # }
 }
+
 
 # Scheduled Tasks
 # ---------------
@@ -295,9 +307,9 @@ override_whitelisted_methods = {
 # Fixtures
 #------------------
 
-fixtures =[
-    'Library Member',
-]
+# fixtures =[
+#     'Library Member',
+# ]
 
 
 #sounds
@@ -334,6 +346,3 @@ brand_html = """
     </a>
 </div>
 """
-
-
-

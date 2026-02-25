@@ -1,5 +1,11 @@
 {
- "actions": [],
+ "actions": [
+  {
+   "action": "/app/library-member",
+   "action_type": "Route",
+   "label": "Lib_Member"
+  }
+ ],
  "allow_rename": 1,
  "autoname": "STD.#####",
  "creation": "2026-01-01 12:17:56.504212",
@@ -197,7 +203,7 @@
    "link_fieldname": "custom_student"
   }
  ],
- "modified": "2026-02-13 11:06:45.022850",
+ "modified": "2026-02-24 10:41:28.623092",
  "modified_by": "Administrator",
  "module": "lib_Module",
  "name": "Student",
