@@ -1,4 +1,4 @@
-che{
+{
     "cards": [
         {
             "card": "one card demo"
@@ -19,7 +19,7 @@ che{
     "docstatus": 0,
     "doctype": "Dashboard",
     "idx": 0,
-    "is_default": che1,
+    "is_default": 0,
     "is_standard": 1,
     "modified": "2026-01-09 12:46:41.895670",
     "modified_by": "Administrator",

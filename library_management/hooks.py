@@ -47,6 +47,8 @@ doctype_js = {
     # "Student" : "public/js/student_js.js",
     "Sales Invoice": "public/js/sales_invoice_custom.js",
     "Customer":"public/js/customer.js",
+    "Purchase Order":'public/js/purchase order.js',
+    "Contact":"overrides/contact.js"
  }
 
 doctype_list_js = {
@@ -68,7 +70,7 @@ doctype_list_js = {
 
 # website user home page (by Role)
 # role_home_page = {
-# 	"Role": "home_page"
+# 	"Role": "home_page"\q
 # }
 
 # Generators
@@ -307,9 +309,10 @@ override_whitelisted_methods = {
 # Fixtures
 #------------------
 
-# fixtures =[
-#     'Library Member',
-# ]
+fixtures =[
+   # 'Library Member',
+   #{'dt': 'Property Setter', 'filters': [['module', '=', 'lib_module']]}
+]
 
 
 #sounds
