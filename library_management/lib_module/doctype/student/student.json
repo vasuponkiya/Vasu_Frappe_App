@@ -203,7 +203,7 @@
    "link_fieldname": "custom_student"
   }
  ],
- "modified": "2026-02-24 10:41:28.623092",
+ "modified": "2026-03-09 12:11:07.640937",
  "modified_by": "Administrator",
  "module": "lib_Module",
  "name": "Student",
@@ -221,15 +221,6 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
-  },
-  {
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Academics User",
-   "share": 1
   },
   {
    "create": 1,

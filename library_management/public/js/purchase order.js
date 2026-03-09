@@ -67,20 +67,26 @@
 frappe.ui.form.on("Purchase Order Item", {
 
     item_code(frm, cdt, cdn) {
-        fetch_item_batches(frm, cdt, cdn);
+        // fetch_item_batches(frm, cdt, cdn);
     },
 
     form_render(frm, cdt, cdn) {
-        render_editable_batches(frm, cdt, cdn);
+        // render_editable_batches(frm, cdt, cdn);
+        render_table(frm, cdt, cdn)
     },
 
     batch_serial_json(frm, cdt, cdn) {
-        render_editable_batches(frm, cdt, cdn);
+        // render_editable_batches(frm, cdt, cdn);
     },
 
-    // show_table(frm, cdt, cdn) {
-    //     show_dialogbox_popup(frm, cdt, cdn)
-    // }
+    show_table(frm, cdt, cdn) {
+        show_dialogbox_AddData(frm, cdt, cdn)
+    },
+
+    before_items_remove: function (frm, cdt, cdn) {
+        delete_items_child(frm, cdt, cdn);
+        frm.refresh_field('custom_batch_no_and_serial_no');
+    }
 
 
 });
@@ -366,8 +372,6 @@ function show_dialogbox_popup(frm, cdt, cdn) {
         size: 'small',
         primary_action_label: 'Submit',
         primary_action(values) {
-            // console.log(values.enter_batch_no);
-
             data.push({ 'batch_no': values.batch_no, 'serial_no': values.serial_no })
             frappe.model.set_value(
                 cdt,
@@ -380,4 +384,179 @@ function show_dialogbox_popup(frm, cdt, cdn) {
         }
     })
     d.show();
+}
+
+
+function show_dialogbox_AddData(frm, cdt, cdn) {
+    const row = locals[cdt][cdn];
+    // console.log(row.__unsaved);
+
+    // console.log(row.child_docname);
+    if (row.child_docname) {
+        frappe.msgprint("Please save This row first!")
+        frm.refresh_field('items')
+        return
+    }
+
+    let d = new frappe.ui.Dialog({
+        title: 'Enter details',
+        fields: [
+            {
+                label: 'Enter Batch No',
+                fieldname: 'batch_no',
+                fieldtype: 'Data'
+            },
+            {
+                label: 'Enter serial No',
+                fieldname: 'serial_no',
+                fieldtype: 'Data'
+            },
+            {
+                label: 'item Id',
+                fieldname: 'item_id',
+                fieldtype: 'Data',
+                default: row.name,
+                read_only: 1
+            },
+        ],
+        size: 'small',
+        primary_action_label: 'Submit',
+        primary_action(values) {
+            frm.add_child('custom_batch_no_and_serial_no', {
+                batch_no: values.batch_no,
+                serial_no: values.serial_no,
+                item: values.item_id
+            });
+            frm.refresh_field('custom_batch_no_and_serial_no')
+
+            d.hide();
+        }
+    })
+    d.show();
+}
+
+
+function render_table(frm, cdt, cdn) {
+
+    const row = locals[cdt][cdn];
+    const widget = frm.cur_grid.grid_form.fields_dict.batch_no_and_serial_no;
+
+    if (!widget || !widget.html) return;
+    if (row.child_docname) {
+        return
+    }
+
+    frappe.call({
+        method: "library_management.api.getBatchNo.get_batch_serial_rows",
+        args: {
+            item: row.name
+        },
+        callback: function (r) {
+
+            const data = r.message || [];
+            // console.log(data);
+
+            let html = `
+            <style>
+            .po-batch-table table{
+                width:50%;
+                border-collapse: collapse;
+            }
+
+            .po-batch-table th,
+            .po-batch-table td{
+                padding:6px;
+                border:1px solid #ddd;
+            }
+
+            .po-batch-table input[type="text"]{
+                width:100%;
+                height:28px;
+                padding:2px 6px;
+            }
+
+            .po-batch-table td:first-child{
+                text-align:center;
+                vertical-align:middle;
+            }
+            </style>
+
+            <div class="po-batch-table">
+
+            <p><strong>Total Rows:</strong> ${data.length}</p>
+
+            <table class="table table-bordered table-sm">
+
+            <thead>
+            <tr>
+            <th style="width:5%">
+            <input type="checkbox" class="select-all">
+            </th>
+            <th style="width:47%">Batch No</th>
+            <th style="width:48%">Serial No</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            `;
+
+            data.forEach((d, i) => {
+
+                html += `
+            <tr data-index="${i}">
+
+            <td>
+            <input type="checkbox"
+                class="row-check"
+                data-index="${i}">
+            </td>
+
+            <td>
+            <input type="text"
+                class="form-control batch-input"
+                data-index="${i}"
+                value="${d.batch_no || ""}">
+            </td>
+
+            <td>
+            <input type="text"
+                class="form-control serial-input"
+                data-index="${i}"
+                value="${d.serial_no || ""}">
+            </td>
+
+            </tr>
+            `;
+
+            });
+
+            html += `
+            </tbody>
+            </table>
+
+            </div>
+            `;
+
+            widget.html(html);
+
+        }
+    });
+}
+
+
+function delete_items_child(frm, cdt, cdn) {
+
+    const row = locals[cdt][cdn];
+    frappe.call({
+        method: 'library_management.api.getBatchNo.delete_all',
+        args: {
+            item: row.name
+        },
+        callback: function (r) {
+            if (r.message) {
+                frm.refresh_field('custom_batch_no_and_serial_no');
+            }
+        }
+    });
+
 }

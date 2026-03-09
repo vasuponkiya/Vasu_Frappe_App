@@ -33,6 +33,7 @@ class Student(Document):
         except Exception as e:
             frappe.log_error(message=frappe.get_traceback(), title="Student Validation Error")
             frappe.throw(_("An error occurred during calculation: {0}").format(str(e)))
+        
 
     #To delete Linked Employee
     # def on_trash(self):
@@ -64,5 +65,17 @@ def make_new_Employee(doc):
             "employee": employee.name
         }
     except Exception:
-        frappe.log_error("Employee creation Error",frappe.get_traceback())
-        frappe.throw("Employee creation Error please check Error log")
+        frappe.log_error("Employee creation Error",frappe.get_traceback(
+    
+        ))
+        frappe.throw("Employee creation Error please chec Error log")
+
+
+@frappe.whitelist()
+def getStdList():
+    std_list = frappe.db.get_list(
+            "Student",
+            filters = {"status": "Failed"},
+            fields = ["name1", "student_id", "gender"]
+        )
+    print(std_list)
