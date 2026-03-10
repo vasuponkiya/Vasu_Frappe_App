@@ -5,7 +5,7 @@ def get_batch_serial_rows(item):
     return frappe.get_all(
         "Item Child",
         filters={"item": item},
-        fields=["batch_no", "serial_no"]
+        fields=["item","batch_no", "serial_no"]
     )
 
 @frappe.whitelist()
