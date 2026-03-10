@@ -85,9 +85,7 @@ frappe.ui.form.on("Purchase Order Item", {
 
     before_items_remove: function (frm, cdt, cdn) {
         delete_items_child(frm, cdt, cdn);
-        // frm.refresh_field('custom_batch_no_and_serial_no');
     }
-
 
 });
 
@@ -348,7 +346,7 @@ function clear_batches(frm, cdt, cdn) {
 }
 
 
-
+// fuction which will set values from dialog box to JSON Field of Purchase Order Item
 function show_dialogbox_popup(frm, cdt, cdn) {
     const row = locals[cdt][cdn];
 
@@ -539,7 +537,7 @@ function render_table(frm, cdt, cdn) {
     });
 }
 
-
+// This Function use for (if we delete Item then it will delete its child data which are store into 'custom_batch_no_and_serial_no' table )
 function delete_items_child(frm, cdt, cdn) {
     const row = locals[cdt][cdn];
 
