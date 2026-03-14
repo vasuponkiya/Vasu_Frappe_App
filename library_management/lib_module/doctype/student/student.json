@@ -36,7 +36,8 @@
   "address_line1",
   "city",
   "pincode",
-  "amended_from"
+  "amended_from",
+  "abc"
  ],
  "fields": [
   {
@@ -193,6 +194,12 @@
    "hidden": 1,
    "label": "has Employee ",
    "no_copy": 1
+  },
+  {
+   "fieldname": "abc",
+   "fieldtype": "Select",
+   "label": "Abc",
+   "options": "A\nB"
   }
  ],
  "grid_page_length": 50,
@@ -203,7 +210,7 @@
    "link_fieldname": "custom_student"
   }
  ],
- "modified": "2026-03-09 12:11:07.640937",
+ "modified": "2026-03-13 17:11:40.595275",
  "modified_by": "Administrator",
  "module": "lib_Module",
  "name": "Student",

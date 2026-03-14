@@ -311,7 +311,7 @@ override_whitelisted_methods = {
 
 fixtures =[
    # 'Library Member',
-   #{'dt': 'Property Setter', 'filters': [['module', '=', 'lib_module']]}
+#    {'dt': 'Property Setter', 'filters': [['module', '=', 'lib_module']]}
 ]
 
 

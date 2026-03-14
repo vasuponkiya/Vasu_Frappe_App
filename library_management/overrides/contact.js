@@ -17,16 +17,17 @@ frappe.ui.form.on('Contact', {
                     // console.log(v);
                     d.hide();
 
-                    frappe.call({
-                        method: 'library_management.overrides.contact_api.call_api',
-                        args: {
-                            doc: v
-                        },
-                    }).then(
-                        r => {
-                            frm.set_value('first_name', r.massege)
-                        }
-                    )
+                    // frappe.call({
+                    //     method: 'library_management.overrides.contact_api.call_api',
+                    //     args: {
+                    //         doc: v
+                    //     },
+                    // }).then(
+                    //     r => {
+                    //         frm.set_value('first_name', r.massege)
+                    //     }
+                    // )
+                    frappe.request()
                 },
 
             });

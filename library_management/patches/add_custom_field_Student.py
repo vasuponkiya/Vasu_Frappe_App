@@ -11,8 +11,10 @@ def create_new_student_fields():
             {
                 "fieldname": "custom_field_via_patch",
                 "label": "Custom Field Via Patch",
-                "fieldtype": "Data",
-                "insert_after": "contact_no"
+                "fieldtype": "Select",
+                "insert_after": "contact_no",
+                "options":" \nA\nB\nC",
+                "default": " "
             }
         ]
     }
