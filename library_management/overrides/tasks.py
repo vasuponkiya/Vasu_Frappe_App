@@ -42,5 +42,5 @@ def send_daily_email(users=None):
 
     except Exception:
         logger.error(frappe.get_traceback())
-        frappe.log_error(frappe.get_traceback(), "Email Scheduler Error")
+        frappe.log_error("Email Scheduler Error",frappe.get_traceback())
 

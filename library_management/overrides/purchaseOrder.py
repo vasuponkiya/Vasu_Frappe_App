@@ -9,3 +9,4 @@ class CustomPurchaseOrder(PurchaseOrder):
 
         if(not self.custom_expected_delivery_date):
             frappe.throw(_("Please Provide Expected delivery date"))
+    

@@ -23,10 +23,7 @@ def create_student(**data):
 			})
 
 		# --- Save ---
-		# student.insert(ignore_permissions=True)
 		student.insert(ignore_permissions=True)
-		frappe.db.commit()
-
 		return {
 			"status": "success",
 			"student_name": student.name

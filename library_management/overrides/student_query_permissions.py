@@ -6,3 +6,6 @@ def get_permission_query_conditions(user):
         user = frappe.session.user
 
     return "name != 'STD00028'"
+
+
+    
