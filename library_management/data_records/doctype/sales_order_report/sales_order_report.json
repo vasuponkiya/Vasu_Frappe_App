@@ -1,0 +1,88 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SOR-[{from_date}-{to_date}]-{####}",
+ "creation": "2026-03-12 10:48:01.904834",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cz9j",
+  "company",
+  "from_date",
+  "to_date",
+  "column_break_uumx",
+  "section_break_cdg4",
+  "report_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cz9j",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "report_items",
+   "fieldtype": "Table",
+   "label": "Report Items",
+   "options": "Sales Order Report Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_uumx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_cdg4",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-12 18:00:55.569092",
+ "modified_by": "Administrator",
+ "module": "Data Records",
+ "name": "Sales Order Report",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
