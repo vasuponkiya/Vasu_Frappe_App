@@ -16,6 +16,7 @@ class SalesOrderReport(Document):
 
 		conditions = ""
 		filters = {
+			
 			"company": self.company,
 			"from_date": self.from_date,
 			"to_date": self.to_date
